@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <TestComponent/>
+          <TestComponent name='Carlos'/>
           <ClassComponent name='Mundo'/>
         </p>
         <a
