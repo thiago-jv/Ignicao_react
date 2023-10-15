@@ -1,18 +1,19 @@
 import './App.css';
 import Header from '../Header';
-import Button from '../Button';
+import Button from '../Shared/Button';
+import Container from '../Container';
 
 function App() {
   return (
     <div className="App">
       <Header title='AlgaStock'/>
       
-      <div className='Container'>
+      <Container>
        <Button onClick={() =>window.alert('UIIU')}>
-        Alert
+         Alert
         </Button>
-      </div>
-    
+      </Container>
+      
     </div>
   );
 }
