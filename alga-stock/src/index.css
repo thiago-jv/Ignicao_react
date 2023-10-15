@@ -4,3 +4,8 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+.Container {
+  margin: 0 auto;
+  max-width: 480px;
+}
