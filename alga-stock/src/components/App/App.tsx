@@ -10,10 +10,15 @@ function App() {
       <Header title='AlgaStock'/>
       
       <Container>
-       <Button onClick={() =>window.alert('UIIU')}>
-         Alert
-        </Button>
-        <Input label='Rua'/>
+      <ul>
+          {
+            ['Daniel', 'William', 'Thiago', 'Daniel'].map((name, index) => {
+              return <li key={index}>
+                { name }
+              </li>
+            })
+          }
+        </ul>
       </Container>
       
     </div>
