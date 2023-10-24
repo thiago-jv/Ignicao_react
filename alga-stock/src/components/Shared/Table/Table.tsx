@@ -1,7 +1,5 @@
 import React from 'react'
 import './Table.scss'
-import Products from './Table.mockdata'
-import { type } from 'os'
 
 const headers: TableHeader[] = [
   { key: 'id', value: '#' },
@@ -10,7 +8,18 @@ const headers: TableHeader[] = [
   { key: 'stock', value: 'Available Stock', right: true }
 ]
 
-declare interface TableHeader {
+declare interface TableProps {
+  headers: TableHeader[]
+  data: any[]
+
+  enableActions?: boolean
+  
+  onDelete?: (item : any) => void
+  onDetail?: (item : any) => void
+  onEdit?: (item : any) => void
+}
+
+export interface TableHeader {
   key: string
   value: string
   right?: boolean
@@ -51,13 +60,14 @@ function organizeData (data: any[], headers: TableHeader[]):
   return [organizedData, indexedHeaders]
 }
 
-const Table = () => {
-  const [organizedData, indexedHeaders] = organizeData(Products, headers)
+const Table: React.FC<TableProps> = (props) => {
+  const [organizedData, indexedHeaders] = organizeData(props.data, props.headers)
+
   return <table className="AppTable">
     <thead>
       <tr>
         {
-          headers.map(header =>
+          props.headers.map(header =>
             <th
               className={header.right ? 'right' : ''}
               key={header.key}
